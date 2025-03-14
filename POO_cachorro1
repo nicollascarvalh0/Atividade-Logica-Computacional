@@ -1,0 +1,38 @@
+class Cachorro:
+    def __init__(self, nome):
+        self.nome = nome
+        self.energia = 100
+    
+    def brincar(self):
+        if self.energia > 20:
+            self.energia -= 20
+            print(f"Energia atual de {self.nome} : {self.energia}.")
+        else:
+            print(f"{self.nome} está muito cansado para brincar e precisa dormir.")
+    
+    def dormir(self):
+        self.energia = 100
+        print(f"{self.nome} descansou e agora tem {self.energia} de energia.")
+
+nome = input("Qual o nome do cachorro? ")
+
+meu_cachorro = Cachorro(nome)
+
+while True:
+    print("\nO que deseja fazer?")
+    print("1 - Brincar")
+    print("2 - Dormir")
+    print("3 - Sair")
+    acao = int(input("\nEscolha uma ação: "))
+    
+    if acao == 1:
+        print(f"\nEnergia anterior de {meu_cachorro.nome} : {meu_cachorro.energia}")
+        meu_cachorro.brincar() 
+    elif acao == 2:
+        meu_cachorro.dormir() 
+        print(f"\nEnergia restaurada de {meu_cachorro.nome}: {meu_cachorro.energia}")
+    elif acao == 3:
+        print(f"\nSaindo, {meu_cachorro.nome}!")
+        break
+    else:
+        print(f"\nEscolha uma opção válida para {meu_cachorro.nome}.")
